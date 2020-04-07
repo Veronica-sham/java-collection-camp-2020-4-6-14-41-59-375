@@ -1,9 +1,7 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Filter {
 
@@ -14,18 +12,39 @@ public class Filter {
     }
 
     public List<Integer> filterEven() {
-        throw new NotImplementedException();
+        List<Integer> storeArray;
+        storeArray = this.array;
+        List<Integer> evenArr = null;
+        evenArr = storeArray.stream().filter(element -> element%2 == 0).collect(Collectors.toList());
+        return evenArr;
+       // throw new NotImplementedException();
+
     }
 
     public List<Integer> filterMultipleOfThree() {
-        throw new NotImplementedException();
+        List<Integer> storeArray;
+        storeArray = this.array;
+        List<Integer> canDivByThreeArr = null;
+        canDivByThreeArr = storeArray.stream().filter(element -> element%3 == 0).collect(Collectors.toList());
+        return canDivByThreeArr;
+       // throw new NotImplementedException();
     }
 
     public List<Integer> getCommonElements(List<Integer> firstList, List<Integer> secondList) {
-        throw new NotImplementedException();
+        List<Integer> commonElements = null;
+        commonElements = firstList.stream().filter(element -> secondList.contains(element)).collect(Collectors.toList());
+        return commonElements;
+        //throw new NotImplementedException();
     }
 
     public List<Integer> getDifferentElements() {
-        throw new NotImplementedException();
+        List<Integer> storeArray;
+        storeArray = this.array;
+        List<Integer> notCommonElements = null;
+        notCommonElements = storeArray.stream().distinct().collect(Collectors.toList());
+        return notCommonElements;
+        //throw new NotImplementedException();
     }
+
+
 }
